@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport", content="width=device-width, initial-scale=1.0">
-        <title>Flappy Bird</title>
-        <link rel="stylesheet" href="flappybird.css">
-        <script src="flappybird.js"></script>
-    </head>
-    <body>
-        <canvas id="board"></canvas>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Flappy Bird</title>
+    <link rel="stylesheet" href="flappybird.css">
+    <script src="flappybird.js" defer></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #board {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="board"></canvas>
+
+    <script>
+        
+        function resizeCanvas() {
+            const canvas = document.getElementById("board");
+            const width = Math.min(window.innerWidth, 480); 
+            const height = width * (640 / 360); 
+            canvas.style.width = width + "px";
+            canvas.style.height = height + "px";
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+        window.addEventListener("load", resizeCanvas);
+    </script>
+</body>
 </html>
